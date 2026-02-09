@@ -1,15 +1,14 @@
 package com.ehdnd.spring_basic.order;
 
 import com.ehdnd.spring_basic.discount.DiscountPolicy;
-import com.ehdnd.spring_basic.discount.FixDiscountPolicy;
 import com.ehdnd.spring_basic.member.Member;
 import com.ehdnd.spring_basic.member.MemberRepository;
 import com.ehdnd.spring_basic.member.MemoryMemberRepository;
 
-public class OrderServiceImpl implements  OrderService {
+public class OrderServiceImpl implements OrderService {
 
   private final MemberRepository memberRepository = new MemoryMemberRepository();
-  private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+  private DiscountPolicy discountPolicy;
 
   @Override
   public Order createOrder(Long memberId, String itemName, int itemPrice) {
