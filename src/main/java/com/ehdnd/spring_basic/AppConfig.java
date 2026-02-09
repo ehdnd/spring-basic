@@ -2,6 +2,7 @@ package com.ehdnd.spring_basic;
 
 import com.ehdnd.spring_basic.discount.DiscountPolicy;
 import com.ehdnd.spring_basic.discount.FixDiscountPolicy;
+import com.ehdnd.spring_basic.discount.RateDiscountPolicy;
 import com.ehdnd.spring_basic.member.MemberRepository;
 import com.ehdnd.spring_basic.member.MemberService;
 import com.ehdnd.spring_basic.member.MemberServiceImpl;
@@ -24,7 +25,8 @@ public class AppConfig {
   }
 
   private DiscountPolicy discountPolicy() {
-    return new FixDiscountPolicy();
+//    return new FixDiscountPolicy();
+    return new RateDiscountPolicy();
   }
 
 }
