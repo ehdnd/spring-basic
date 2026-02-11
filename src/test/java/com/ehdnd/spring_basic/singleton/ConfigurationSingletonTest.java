@@ -30,9 +30,20 @@ public class ConfigurationSingletonTest {
         orderService.getMemberRepository());
     System.out.println("memberRepository = " + memberRepository);
 
-    //모두 같은 인스턴스를 참고하고 있다.
+    // 모두 같은 인스턴스를 참고하고 있다.
     assertThat(memberService.getMemberRepository()).isSameAs(memberRepository);
     assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
+  }
+
+  @Test
+  void configurationDeep() {
+    ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+
+    // AppConfig도 스프링 빈으로 등록된다.
+    AppConfig bean = ac.getBean(AppConfig.class);
+
+    System.out.println("bean = " + bean.getClass());
+    // bean = class com.ehdnd.spring_basic.AppConfig$$SpringCGLIB$$0
   }
 
 }
