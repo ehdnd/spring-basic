@@ -2,9 +2,11 @@ package com.ehdnd.spring_basic.discount;
 
 import com.ehdnd.spring_basic.member.Grade;
 import com.ehdnd.spring_basic.member.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+@Qualifier("fixDiscountPolicy")
 public class FixDiscountPolicy implements DiscountPolicy {
 
   private int discountFixAmount = 1000; // 1000원 할인
