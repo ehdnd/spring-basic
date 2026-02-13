@@ -38,6 +38,7 @@ public class AllBeanTest {
 
     // 생성자 파라미터를 Map/List<DiscountPolicy>로 선언하면,
     // 스프링이 DiscountPolicy의 모든 구현 빈을 찾아 컬렉션으로 주입한다.
+    // 다만, 다형성을 적극 활용하는 비즈니스 로직은, 수동 등록을 고민하자.
     public DiscountService(Map<String, DiscountPolicy> policyMap, List<DiscountPolicy> policies) {
       this.policyMap = policyMap;
       this.policies = policies;
