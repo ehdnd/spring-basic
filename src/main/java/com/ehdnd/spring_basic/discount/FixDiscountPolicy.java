@@ -2,11 +2,12 @@ package com.ehdnd.spring_basic.discount;
 
 import com.ehdnd.spring_basic.member.Grade;
 import com.ehdnd.spring_basic.member.Member;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FixDiscountPolicy implements DiscountPolicy {
 
-  //    1000원 할인
-  private int discountFixAmount = 1000;
+  private int discountFixAmount = 1000; // 1000원 할인
 
   @Override
   public int discount(Member member, int price) {

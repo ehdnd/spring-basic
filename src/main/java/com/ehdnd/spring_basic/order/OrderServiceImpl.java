@@ -4,7 +4,6 @@ import com.ehdnd.spring_basic.discount.DiscountPolicy;
 import com.ehdnd.spring_basic.member.Member;
 import com.ehdnd.spring_basic.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
