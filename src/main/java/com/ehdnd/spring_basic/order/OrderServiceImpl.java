@@ -1,5 +1,6 @@
 package com.ehdnd.spring_basic.order;
 
+import com.ehdnd.spring_basic.annotation.MainDiscountPolicy;
 import com.ehdnd.spring_basic.discount.DiscountPolicy;
 import com.ehdnd.spring_basic.member.Member;
 import com.ehdnd.spring_basic.member.MemberRepository;
@@ -15,7 +16,8 @@ public class OrderServiceImpl implements OrderService {
 
   // 생성자를 하나만 두면 @Autowired 생략이 가능하므로,
   // 생성자를 한개만 두고 Lombok 라이브러리의 @RequiredArgsConstructor 사용하여 깔끔하게 하자.
-  public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+  public OrderServiceImpl(MemberRepository memberRepository,
+      @MainDiscountPolicy DiscountPolicy discountPolicy) {
     this.memberRepository = memberRepository;
     this.discountPolicy = discountPolicy;
   }

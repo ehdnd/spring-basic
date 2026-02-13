@@ -1,12 +1,13 @@
 package com.ehdnd.spring_basic.discount;
 
+import com.ehdnd.spring_basic.annotation.MainDiscountPolicy;
 import com.ehdnd.spring_basic.member.Grade;
 import com.ehdnd.spring_basic.member.Member;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Primary
+@MainDiscountPolicy
 public class RateDiscountPolicy implements DiscountPolicy {
 
   private int discountPercent = 10; // 10%
