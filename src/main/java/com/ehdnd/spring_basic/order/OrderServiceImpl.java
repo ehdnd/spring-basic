@@ -10,9 +10,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderServiceImpl implements OrderService {
 
+  // 한 번 설정하면 바뀌지 않는, 불변 필수 의존관계 - 생성자 주입 (setter 메서드 만들면 안되겠지.)
   private final MemberRepository memberRepository;
-  private DiscountPolicy discountPolicy;
+  private final DiscountPolicy discountPolicy;
 
+  // 생성자가 하나만 있으면 @Autowired 생략이 가능하다.
   @Autowired
   public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
     this.memberRepository = memberRepository;
