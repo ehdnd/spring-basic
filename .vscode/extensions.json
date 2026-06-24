@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "github.codespaces", // 코드스페이스
+        "k--kato.intellij-idea-keybindings", // 키바인딩
+        "pkief.material-icon-theme", // 아이콘
+        "akamud.vscode-theme-onelight" // 테마
+    ]
+}
