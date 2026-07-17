@@ -13,7 +13,7 @@ import com.ehdnd.spring_basic.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration // CGLIB 적용. 스프링 설정 정보에는 항상 사용하자.
 public class AppConfig {
 
   // @Bean memberService -> new MemoryMemberRepository()

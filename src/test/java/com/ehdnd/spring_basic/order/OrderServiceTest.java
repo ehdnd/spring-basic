@@ -14,6 +14,7 @@ public class OrderServiceTest {
   MemberService memberService;
   OrderService orderService;
 
+  // BeforeEach는 각 테스트를 실행하기 전에 호출된다.
   @BeforeEach
   public void beforeEach() {
     AppConfig appConfig = new AppConfig();

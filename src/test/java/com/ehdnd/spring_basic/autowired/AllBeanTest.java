@@ -19,6 +19,9 @@ public class AllBeanTest {
     ApplicationContext ac = new AnnotationConfigReactiveWebApplicationContext(AutoAppConfig.class,
         DiscountService.class);
 
+    // (참고) 스프링 컨테이너 생성하며 스프링 빈 등록
+    // -> 넘겨진 클래스 정보 자동 등록
+    // -> 컨테이너 생성 - 동시에 `AutoAppConfig`, `DiscountService` 스프링 빈 등록
     DiscountService discountService = ac.getBean(DiscountService.class);
     Member member = new Member(1L, "userA", Grade.VIP);
 
