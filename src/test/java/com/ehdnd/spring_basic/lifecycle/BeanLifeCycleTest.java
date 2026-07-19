@@ -21,7 +21,7 @@ public class BeanLifeCycleTest {
   @Configuration
   static class LifeCycleConfig {
 
-    @Bean(initMethod = "init", destroyMethod = "close") // destroyMethod (추론)
+    @Bean
     public NetworkClient networkClient() {
       NetworkClient networkClient = new NetworkClient(); // 객체 생성 (파라미터)
       networkClient.setUrl("http://dev.dev"); // 초기화 (무거운) - 두 작업을 분리
