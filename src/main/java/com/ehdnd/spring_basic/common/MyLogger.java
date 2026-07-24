@@ -5,10 +5,11 @@ import jakarta.annotation.PreDestroy;
 import java.util.UUID;
 import lombok.Setter;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("request") // HTTP 요청 당 각각 구분된다.
+@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS) // HTTP 요청 당 각각 구분된다.
 public class MyLogger {
 
   private String uuid;
