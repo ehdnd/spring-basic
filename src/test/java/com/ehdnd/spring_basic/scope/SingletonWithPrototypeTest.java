@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.ObjectProvider;
+import jakarta.inject.Provider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Scope;
@@ -37,18 +37,18 @@ public class SingletonWithPrototypeTest {
     int count1 = clientBean1.logic();
     assertThat(count1).isEqualTo(1);
 
-    int count2 = clientBean1.logic(); // 사용할 때마다 새로 생성되지 않는다.
-    assertThat(count2).isEqualTo(2); // 우리는 새로 생성되는 것을 원하므로 의도와 다르게 동작한다.
+    int count2 = clientBean1.logic();
+    assertThat(count2).isEqualTo(1);
   }
 
   @Scope("singleton")
   static class ClientBean {
 
     @Autowired
-    private ObjectProvider<PrototypeBean> prototypeBeanProvider;
+    private Provider<PrototypeBean> prototypeBeanProvider;
 
     public int logic() {
-      PrototypeBean prototypeBean = prototypeBeanProvider.getObject();
+      PrototypeBean prototypeBean = prototypeBeanProvider.get();
       prototypeBean.addCount();
       return prototypeBean.getCount();
     }
